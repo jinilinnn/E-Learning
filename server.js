@@ -134,6 +134,11 @@ app.patch('/api/enrollments/:id', async (req, res) => {
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('MongoDB Connected');
-    app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
   })
-  .catch(err => console.error('DB Error:', err));
+  .catch(err => {
+    console.error('DB Connection Failed:', err);
+    process.exit(1);
+  });
+
+// export for vercel
+module.exports = app;
