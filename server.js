@@ -75,7 +75,7 @@ app.post('/api/register', async (req, res) => {
   } catch (err) { res.status(400).json({ error: err.message }); }
 });
 
-// GET ALL USERS - THIS WAS MISSING!
+// GET ALL USERS 
 app.get('/api/users', async (req, res) => {
   try {
     await connectDB();
